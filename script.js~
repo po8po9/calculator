@@ -1,0 +1,62 @@
+const displayResult = document.querySelector ('#result');
+const displayInput= document.querySelector ('#input');
+const numButtons = document.querySelectorAll ('.number-button');
+const funcButtons = document.querySelectorAll ('.func-button');
+const allButtons = document.querySelectorAll ('button');
+const clearButton = document.querySelector ('#clear');
+const undoButton = document.querySelector ('#undo');
+
+function removeTransition(event) {
+    if (event.target.className == 'clicked') return;
+    event.target.classList.remove('clicked');
+}
+//Disables numButtons for certain length. Flag to indicate activation
+function buttonDisable(numButtons, flag){
+    if (flag==1){
+	numButtons.forEach(numButton =>numButton.disabled=true);
+	alert('Length not supported');
+    }else{
+	numButtons.forEach(numButton =>numButton.disabled=false);
+    }
+}
+
+//AC button
+clearButton.addEventListener ('click', () => {
+    displayInput.textContent="";
+    buttonDisable(numButtons, 0);
+})
+//undo button
+undoButton.addEventListener('click', ()=>{
+    let lastChar = displayInput.textContent[displayInput.textContent.length -1];
+    console.log(lastChar);
+    displayInput.textContent=displayInput.textContent.replace(lastChar, '');
+    
+
+});
+
+//Transistion End Listener for all buttons
+allButtons.forEach ((allbutton) =>{
+     addEventListener('transitionend', removeTransition)
+});
+
+//Number Listeners
+numButtons.forEach(numButton=>{
+     numButton.addEventListener ('click', () =>{
+	 if (displayInput.textContent.length>=10){
+	     buttonDisable(numButtons, 1);
+	     return;
+	 }
+	 displayInput.textContent = displayInput.textContent + numButton.textContent;
+         numButton.classList.add('clicked');
+     });
+});
+
+funcButtons.forEach(funcButton=>{
+     funcButton.addEventListener ('click', () =>{
+	 
+         funcButton.classList.add('clicked');
+     });
+});
+
+
+
