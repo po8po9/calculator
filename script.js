@@ -17,39 +17,45 @@ function buttonDisable(numButtons, flag){
     }
 }
 //AC button
-clearButton.addEventListener ('click', () => {
+function clear (){
     displayInput.textContent="";
     buttonDisable(numButtons, 0);
-})
+};
 //undo button
-undoButton.addEventListener('click', ()=>{
+function undo (){
     let lastChar = displayInput.textContent[displayInput.textContent.length -1];
     displayInput.textContent=displayInput.textContent.replace(lastChar, '');
     buttonDisable(numButtons, 0);
- });
+};
 //Transistion End Listener for all buttons
-allButtons.forEach ((allbutton) =>{
+function transEnd (allbutton){
     addEventListener('transitionend', (allbutton) => {
 	 if (event.target.className == 'clicked') return;
-	 event.target.classList.remove('clicked');
+	 event.target.classList.remove('clicked');	
     });
-});
+    if (displayInput.textContent.length>=10){
+	buttonDisable(numButtons, 1);
+	return;
+    }
+};
+
+function addListenerList (selector, event, fn){
+    let list = document.querySelectorAll (`${selector}`);
+    for (item of list){
+	item.addEventListener (event, fn);
+    }
+}
+function handleNumbers (element){
+    let current = displayInput.textContent;
+    displayInput.textContent = current + element.target.getAttribute('data-num');
+    element.target.classList.add('clicked'); 
+}
+addListenerList ('.number-button', 'click', handleNumbers);
+addListenerList ('button', 'click', transEnd);
+addListenerList ('#undo', 'click', undo);
+addListenerList ('#clear', 'click', clear);
 
 
-//Number Listeners
-numButtons.forEach(numButton=>{
-     numButton.addEventListener ('click', () =>{
-	 if (displayInput.textContent.length>=10){
-	     buttonDisable(numButtons, 1);
-	     return;
-	     }
-	 displayInput.textContent = displayInput.textContent + numButton.textContent;
-	 numButton.classList.add('clicked');
-     });
-});
-//Click transition for function buttons
-funcButtons.forEach(funcButton=>{
-     funcButton.addEventListener ('click', () =>{	 
-         funcButton.classList.add('clicked');
-     });
-});
+
+
+//this is new branch
