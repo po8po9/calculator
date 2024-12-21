@@ -1,0 +1,27 @@
+function operator (expression){
+
+    let firstNumberREG = /^[0-9]+/;
+    let firstNumber = expression.match(firstNumberREG);
+    let firstOperandREG = /[\+\-\/\*]{1}/;
+    let firstOperand =  expression.match(firstOperandREG);
+    console.log (firstNumber);
+    console.log (firstOperand);
+
+    let checkOperandsREG = /[\+\-\/\*]+/;
+    let checkOperand = expression.match (checkOperandsREG);
+
+    if (checkOperand) {console.log ("more than one operand present")}
+    
+
+    //find first expression before operand (+ - / *)
+
+    
+    
+
+
+
+
+
+
+
+}
