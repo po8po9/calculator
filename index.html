@@ -3,7 +3,9 @@
     <head>
 	<meta charset ="utf-8">
 	<link rel="stylesheet" href="./styles.css">
-	<script src="./script.js" defer></script>
+	<script src="./new_script.js" defer></script>
+	<script src="./operator.js" defer></script>
+	
 	<title>Calculator</title>
 	
     </head>
@@ -15,32 +17,32 @@
 	    </div>
 	    <div id="keyboard">
 		<!--- first row --->
-		<button data-num="7" class="number-button">7</button>
-		<button data-num="8" class="number-button">8</button>
-		<button data-num="9" class="number-button">9</button>
-		<button id="division" class="func-button">/</button>
-		<button id="undo" class="func-button">C</button>
-		<button id="clear" class="func-button">AC</button>
+		<button data-value="7" class="nonAction-button number-button">7</button>
+		<button data-value="8" class="nonAction-button number-button">8</button>
+		<button data-value="9" class="nonAction-button number-button">9</button>
+		<button data-value="/" id="division" class="nonAction-button">/</button>
+		<button id="undo" class="action-button">C</button>
+		<button id="clear" class="action-button">AC</button>
 		<!--- second row --->
-		<button data-num="4" class="number-button">4</button>
-		<button data-num="5" class="number-button">5</button>
-		<button data-num="6" class="number-button">6</button>
-		<button id="mult" class="func-button">x</button>
-		<button id="par-left" class="func-button">(</button>
-		<button id="par-right" class="func-button">)</button>
+		<button data-value="4" class="nonAction-button number-button">4</button>
+		<button data-value="5" class="nonAction-button number-button">5</button>
+		<button data-value="6" class="nonAction-button number-button">6</button>
+		<button data-value="*" id="mult" class="nonAction-button">x</button>
+		<button data-value="("id="par-left" class="nonAction-button">(</button>
+		<button data-value=")"id="par-right" class="nonAction-button">)</button>
 		<!--- third row --->
-		<button data-num="1" class="number-button">1</button>
-		<button data-num="2" class="number-button">2</button>
-		<button data-num="3" class="number-button">3</button>
-		<button id="minus" class="func-button">-</button>
-		<button id="pwr" class="func-button">x²</button>
-		<button id="sqr" class="func-button">&#8730</button>
+		<button data-value="1" class="nonAction-button number-button">1</button>
+		<button data-value="2" class="nonAction-button number-button">2</button>
+		<button data-value="3" class="nonAction-button number-button">3</button>
+		<button data-value="-"id="minus" class="nonAction-button">-</button>
+		<button data-value="^"id="pwr" class="nonAction-button">x<sup>y</sup></button>
+		<button data-value=""id="sqr" class="nonAction-button disabled">&#8730</button>
 		<!--- fourth row --->
-		<button data-num="0" class="number-button">0</button>
-		<button id="dot" class="func-button">.</button>
-		<button id="perc" class="func-button">%</button>
-		<button id="add" class="func-button">+</button>
-		<button id="equal" class="func-button">=</button>
+		<button data-value="0" class="nonAction-button number-button">0</button>
+		<button data-value="." id="dot" class="nonAction-button">.</button>
+		<button data-value='%' id="perc" class="nonAction-button">%</button>
+		<button data-value="+" id="add" class="nonAction-button">+</button>
+		<button data-value="=" id="equal" class="action-button">=</button>
 
 	    </div>
 	</div>

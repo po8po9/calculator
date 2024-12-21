@@ -42,25 +42,19 @@ body{
     width:90%;
     height:22%;
     background-color:var(--display-background);
-    color:var(--display-numb-color) ;
-    font-family:helvetica;
- 
-    
+      
     
 }
 #result{
     margin-top:2%;
     margin-right:5%;
+    font-size:2rem;
     max-width:85%;
     overflow:hidden;
+    font-family:monospace;
+    font-weight:bold;
 }
-#input{
-     margin-right:5%;
-     font-size:2rem;
-     max-width:85%;
-     overflow:hidden;
-    
-}
+
 /*--------------------------------------*/
 /*--------------keyboard----------------*/
 
@@ -77,13 +71,13 @@ body{
 .number-button{
     background-color:var(--num-button);
     align-self: stretch;
-    
     width: 100%;
     font-weight:bold;
     font-size:1.2rem;
     transition: all .1s ease;
+    font-family:monospace;
 }
-.func-button{
+.nonAction-button, .action-button{
     background-color:var(--num-button);
     align-self: stretch;
     
@@ -100,6 +94,12 @@ body{
 .clicked{
     border:1px solid var(--animation-color);
     transform:scale(0.9);
+}
+
+.disabled{
+    background-color:grey;
+    pointer-events: none;
+    
 }
 
 /*--------------------------------------*/
